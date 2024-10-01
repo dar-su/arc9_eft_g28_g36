@@ -119,6 +119,7 @@ ATT.SortOrder = 0
 ATT.MenuCategory = "ARC9 - EFT Attachments"
 
 ATT.Category = {"eft_g28_mag"}
+ATT.ActivateElements = {"g28_10rnd"}
 
 ATT.ClipSize = 10
 ATT.ChamberSize = 1
@@ -183,6 +184,7 @@ ATT.SortOrder = 2
 ATT.MenuCategory = "ARC9 - EFT Attachments"
 
 ATT.Category = {"eft_g28_mag"}
+ATT.ActivateElements = {"g28_10rnd"}
 
 ATT.ClipSize = 10
 ATT.ChamberSize = 1
@@ -213,6 +215,7 @@ ATT.SortOrder = 2
 ATT.MenuCategory = "ARC9 - EFT Attachments"
 
 ATT.Category = {"eft_g28_mag"}
+ATT.ActivateElements = {"g28_20rnd"}
 
 ATT.ClipSize = 20
 ATT.ChamberSize = 1
@@ -297,6 +300,7 @@ ATT.SortOrder = 2
 ATT.MenuCategory = "ARC9 - EFT Attachments"
 
 ATT.Category = {"eft_g28_mag"}
+ATT.ActivateElements = {"g28_20rnd"}
 
 ATT.ClipSize = 20
 ATT.ChamberSize = 1

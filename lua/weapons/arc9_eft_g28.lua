@@ -391,8 +391,8 @@ SWEP.Hook_TranslateAnimation = function(swep, anim)
     local mag = ""
     local nomag = false 
 
-    if elements["eft_g28_mag_10"] then mag = "_0"
-    elseif elements["eft_g28_mag_20"] then mag = "_1"
+    if elements["g28_10rnd"] then mag = "_0"
+    elseif elements["g28_20rnd"] then mag = "_1"
     else nomag = true end
     
     local empty = swep:Clip1() == 0

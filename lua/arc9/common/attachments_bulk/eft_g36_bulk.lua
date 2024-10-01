@@ -863,7 +863,7 @@ ATT.Category = {"eft_g36_hensoldt_mount"}
 ARC9.LoadAttachment(ATT, "eft_g36_hensoldt_sight")
 
 
-///////////////////////////////////////      eft_g28_mag_30
+///////////////////////////////////////      eft_g28_mag_30 -- fucking hell i meant g36!!   too late, the addon is published
 
 
 ATT = {}
