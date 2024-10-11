@@ -980,9 +980,9 @@ ATT.Description = [[A 30-round 5.56x45 magazine designed for the HK G36.
 
 original nontransparent version like in tarkov]]
 
-ATT.EFTErgoAdd = -4
-ATT.CustomCons = { Ergonomics = "-4" }
-ATT.MalfunctionMeanShotsToFailMult = 0.92
+ATT.EFTErgoAdd = -3
+ATT.CustomCons = { Ergonomics = "-3" }
+ATT.MalfunctionMeanShotsToFailMult = 0.95
 ATT.EFTImprovedMagCheck = true
 
 ATT.ActivateElements = {"g36_30rnd"}
