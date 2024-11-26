@@ -923,7 +923,7 @@ SWEP.Animations = {
         IKTimeLine = rik_mag
     },
     ["inspect_empty2_0"] = {
-        Source = "magcheck0_empty",
+        Source = "check_0_empty",
         MinProgress = 0.85,
         FireASAP = true,
         EventTable = rst_magcheck,
@@ -1325,6 +1325,15 @@ SWEP.AttachmentElements = {
 
     ["eft_g28_mag_30"] = { Bodygroups = { {11, 1} } },
     ["eft_mag_ar15_airsoft"]    = { Bodygroups = { {12, 1} } }, -- no bullets on airsoft mag
+
+
+    -- 0.15.5
+    ["eft_g36_stock_idz"] = { Bodygroups = { {7, 3} } },
+    ["eft_g36_stock_idz_butt_cave"] = { Bodygroups = { {13, 1} } },
+    ["eft_g36_stock_idz_butt_vex"] = { Bodygroups = { {13, 2} } },
+    ["eft_g36_stock_buffer"] = { Bodygroups = { {7, 4} } },
+    ["eft_g36_hg_quad"] = { Bodygroups = { {3, 5} } },
+    ["eft_g36_hg_slim"] = { Bodygroups = { {3, 4} } },
 }
 
 SWEP.missingpartsnotifsent = 0

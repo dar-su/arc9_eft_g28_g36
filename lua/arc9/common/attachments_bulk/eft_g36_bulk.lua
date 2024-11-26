@@ -1084,3 +1084,278 @@ ATT.HeatCapacityMult = 0.99
 ATT.Category = {"eft_g36_muzzle"}
 
 ARC9.LoadAttachment(ATT, "eft_g36_muzzle_4")
+
+
+
+-- 0.15.5 stuff
+
+///////////////////////////////////////      eft_g36_stock_idz
+
+ATT = {}
+
+ATT.PrintName = "HK G36 IDZ adjustable stock"
+ATT.CompactName = "G36 IDZ"
+ATT.Icon = Material("entities/eft_g36_attachments/newstock.png", "mips smooth")
+ATT.Description = "A polymer adjustable 4-position stock for the G36, manufactured by Heckler & Koch."
+
+ATT.HasStock = true
+
+ATT.EFTErgoAdd = 8
+ATT.CustomPros = { Ergonomics = "+8" }
+ATT.RecoilMult = 0.78
+ATT.VisualRecoilMult = 0.78
+
+ATT.SortOrder = 0
+ATT.Category = "eft_g36_stock"
+ATT.MenuCategory = "ARC9 - EFT Attachments"
+
+ATT.Attachments = {
+    {
+        PrintName = "Buttpad",
+        Category = "eft_g36idz_buttpad",
+        Pos = Vector(9, -0.5, 0),
+        Ang = Angle(0, 0, 0),
+        Icon_Offset = Vector(0, 0, 0),
+    },
+}
+
+ARC9.LoadAttachment(ATT, "eft_g36_stock_idz")
+
+///////////////////////////////////////      eft_g36_stock_idz_butt_cave
+
+ATT = {}
+
+ATT.PrintName = "HK G36 IDZ Concave Buttpad"
+ATT.CompactName = "IDZ Concave"
+ATT.Icon = Material("entities/eft_g36_attachments/g36pad.png", "mips smooth")
+ATT.Description = "A concave buttpad designed for installation on IDZ stocks for the G36 assault rifle. Manufactured by Heckler & Koch."
+
+ATT.EFTErgoAdd = 3
+ATT.CustomPros = { Ergonomics = "+3" }
+ATT.RecoilMult = 0.99
+ATT.VisualRecoilMult = 0.99
+
+ATT.SortOrder = 0
+ATT.Category = "eft_g36idz_buttpad"
+ATT.MenuCategory = "ARC9 - EFT Attachments"
+
+ARC9.LoadAttachment(ATT, "eft_g36_stock_idz_butt_cave")
+
+///////////////////////////////////////      eft_g36_stock_idz_butt_vex
+
+ATT = {}
+
+ATT.PrintName = "HK G36 IDZ Convex Buttpad"
+ATT.CompactName = "IDZ Convex"
+ATT.Icon = Material("entities/eft_g36_attachments/g36padbig.png", "mips smooth")
+ATT.Description = "An extended convex buttpad designed for installation on IDZ stocks for the G36 assault rifle. Manufactured by Heckler & Koch."
+
+ATT.EFTErgoAdd = 1
+ATT.CustomPros = { Ergonomics = "+1" }
+ATT.RecoilMult = 0.97
+ATT.VisualRecoilMult = 0.97
+
+ATT.SortOrder = 0
+ATT.Category = "eft_g36idz_buttpad"
+ATT.MenuCategory = "ARC9 - EFT Attachments"
+
+ARC9.LoadAttachment(ATT, "eft_g36_stock_idz_butt_vex")
+
+
+///////////////////////////////////////      eft_g36_stock_buffer
+
+ATT = {}
+
+ATT.PrintName = "HK G36 Tommy Built AR Stock Adapter"
+ATT.CompactName = "Tommy AR"
+ATT.Icon = Material("entities/eft_g36_attachments/g36buff.png", "mips smooth")
+ATT.Description = [[An adapter for installing AR style buttstocks to the G36 assault rifle. Manufactured by Tommy Built.]]
+
+ATT.HasStock = true
+
+ATT.SortOrder = 0
+ATT.MenuCategory = "ARC9 - EFT Attachments"
+
+ATT.Category = {"eft_g36_stock"}
+
+ATT.Attachments = {
+    {
+        PrintName = "AR Stock",
+        Category = {"eft_ar_stock", "eft_ar_stock_notbuffer"},
+        Pos = Vector(4.78, -0.9, 0.3),
+        Ang = Angle(0, 0, 0),
+        Icon_Offset = Vector(-1, 0, 0.5),
+    },
+}
+
+ARC9.LoadAttachment(ATT, "eft_g36_stock_buffer")
+
+///////////////////////////////////////      eft_g36_hg_quad
+
+ATT = {}
+
+ATT.PrintName = "HK G36 KAC Quad Rail handguard"
+ATT.CompactName = "G36 KAC Quad"
+ATT.Icon = Material("entities/eft_g36_attachments/g36hgidk3.png", "mips smooth")
+ATT.Description = "A quad rail Picatinny handguard for the G36K assault rifle. Manufactured by Knights Armament Company."
+
+ATT.HasHG = true
+
+ATT.EFTErgoAdd = 8
+ATT.CustomPros = { Ergonomics = "+8" }
+ATT.RecoilMult = 0.975
+ATT.VisualRecoilMult = 0.975
+
+ATT.ExcludeElements = {"eft_g36_barrel_228"}
+
+ATT.SortOrder = 0
+ATT.Category = "eft_g36_hg"
+ATT.MenuCategory = "ARC9 - EFT Attachments"
+
+ATT.Model = "models/weapons/arc9/darsu_eft/mods/handguard_g36_quad_lhik.mdl"
+ATT.ModelOffset = Vector(0.45, 0, 0)
+ATT.ModelAngleOffset = Angle(0, 90, 0)
+ATT.LHIK = true 
+
+ATT.Attachments = {
+    {
+        PrintName = "Top Tactical",
+        Category = {"eft_tactical_top", "eft_tactical_top_big"},
+        Pos = Vector(-4.5, 0, -0.65),
+        Ang = Angle(0, 0, 0),
+        Icon_Offset = Vector(0, 0, 0),
+    },
+    {
+        PrintName = "R Tactical",
+        Category = {"eft_tactical", "eft_tactical_top"},
+        Pos = Vector(-4.5, 1.22, 1.5),
+        Ang = Angle(0, 0, 90),
+        Icon_Offset = Vector(0, 0, 0.5),
+    },
+    {
+        PrintName = "L Tactical",
+        Category = {"eft_tactical", "eft_tactical_top"},
+        Pos = Vector(-4.5, -1.22, 1.5),
+        Ang = Angle(0, 0, -90),
+        Icon_Offset = Vector(0, 0, 0.5),
+    },
+    {
+        PrintName = "Grip",
+        Category = {"eft_foregrip_small", "eft_foregrip_large"},
+        Pos = Vector(0, 0, 2.65),
+        Ang = Angle(0, 0, 0),
+        Icon_Offset = Vector(0, 0, -1),
+    }, 
+    {
+        PrintName = "Tactical",
+        Category = {"eft_tactical", "eft_tactical_top", "eft_bipod"},
+        Pos = Vector(-5, 0, 2.65),
+        Ang = Angle(0, 0, 180),
+        -- Icon_Offset = Vector(0, 0, -1),
+    }, 
+}
+
+
+ARC9.LoadAttachment(ATT, "eft_g36_hg_quad")
+
+///////////////////////////////////////      eft_g36_hg_slim
+
+ATT = {}
+
+ATT.PrintName = "HK G36 Slim Line HKey Handguard"
+ATT.CompactName = "G36 Slim"
+ATT.Icon = Material("entities/eft_g36_attachments/g36hgidk3.png", "mips smooth")
+ATT.Description = "A low-profile handguard with an HKey mounting interface for the G36K assault rifle. Manufactured by Heckler & Koch."
+
+ATT.HasHG = true
+
+ATT.EFTErgoAdd = 8
+ATT.CustomPros = { Ergonomics = "+8" }
+ATT.RecoilMult = 0.975
+ATT.VisualRecoilMult = 0.975
+
+ATT.ExcludeElements = {"eft_g36_barrel_228"}
+
+ATT.SortOrder = 0
+ATT.Category = "eft_g36_hg"
+ATT.MenuCategory = "ARC9 - EFT Attachments"
+
+ATT.Model = "models/weapons/arc9/darsu_eft/mods/handguard_g36_slim_lhik.mdl"
+ATT.ModelOffset = Vector(0, 0, 0)
+ATT.ModelAngleOffset = Angle(0, 90, 0)
+ATT.LHIK = true 
+
+ATT.Attachments = {
+    {
+        PrintName = "Top Tactical",
+        Category = {"eft_tactical_top", "eft_tactical_top_big"},
+        Pos = Vector(-4.8, 0, -0.3),
+        Ang = Angle(0, 0, 0),
+        Icon_Offset = Vector(0, 0, 0),
+    },
+    {
+        -- PrintName = "R Keymod",
+        -- Category = {"eft_mount_keymod2","eft_mount_keymod_casv4"},
+        PrintName = "R HKey",
+        Category = {"eft_mount_hkey"},
+        Pos = Vector(-4.5, 0.67, 0.9),
+        Ang = Angle(180, 180, 0),
+        Icon_Offset = Vector(0, 0, 0),
+    },
+    {
+        PrintName = "L HKey",
+        Category = {"eft_mount_hkey"},
+        Pos = Vector(-4.5, -0.67, 0.9),
+        Ang = Angle(0, 0, 0),
+        Icon_Offset = Vector(0, 0, 0),
+    },
+    {
+        PrintName = "Grip",
+        Category = {"eft_foregrip_small", "eft_foregrip_large"},
+        Pos = Vector(0.3, 0, 2.45),
+        Ang = Angle(0, 0, 0),
+        Icon_Offset = Vector(0, 0, -1),
+    }, 
+    {
+        PrintName = "Tactical",
+        Category = {"eft_tactical", "eft_bipod"},
+        Pos = Vector(-5.1, 0, 2.45),
+        Ang = Angle(0, 0, 180),
+        -- Icon_Offset = Vector(0, 0, -1),
+    }, 
+}
+
+
+ARC9.LoadAttachment(ATT, "eft_g36_hg_slim")
+
+
+///////////////////////////////////////      eft_mount_hkey_3
+
+
+ATT = {}
+
+ATT.PrintName = "HK HKey 3 inch rail"
+ATT.CompactName = "HKey 3\""
+ATT.Icon = Material("entities/eft_attachments/mount/casvkm6.png", "mips smooth")
+ATT.Description = [[The HKey 3 inch rail allows installation of additional equipment on the handguards equipped with HKs HKey mounting interface.]]
+
+ATT.Model = "models/weapons/arc9_eft_shared/atts/mounts/hkey_rail.mdl"
+
+ATT.Category = {"eft_mount_hkey"}
+ATT.MenuCategory = "ARC9 - EFT Attachments"
+
+ATT.ModelOffset = Vector(0, 0, 0)
+
+ATT.Attachments = {
+    {
+        PrintName = "Tactical",
+        Category = "eft_tactical",
+        -- RejectAttachments = { ["eft_tactical_raptar"] = true },
+        Pos = Vector(-0.2, -0.36, 0),
+        Ang = Angle(0, 0, -90),
+        Icon_Offset = Vector(0, 0, 0),
+    },
+}
+
+
+ARC9.LoadAttachment(ATT, "eft_mount_hkey_3")

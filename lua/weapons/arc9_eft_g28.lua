@@ -316,6 +316,13 @@ SWEP.BulletBones = { -- the bone that represents bullets in gun/mag
     [2] = "patron_in_mag0",
     [3] = "patron_in_mag1",
     [4] = "patron_in_mag2",
+    [5] = "patron_in_mag3",
+    [6] = "patron_in_mag4",
+    [7] = "patron_in_mag5",
+    [8] = "patron_in_mag6",
+    [9] = "patron_in_mag7",
+    [10] = "patron_in_mag8",
+    [11] = "patron_in_mag9",
 }
 
 -- SWEP.HideBones = { -- please do it later
