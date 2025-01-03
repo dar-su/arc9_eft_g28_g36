@@ -1,19 +1,16 @@
 AddCSLuaFile()
-
-SWEP.Base = "arc9_base"
-SWEP.Spawnable = true
+SWEP.Base = "arc9_eft_base"
 SWEP.Category = "ARC9 - Escape From Tarkov"
-SWEP.SubCategory = ARC9:GetPhrase("eft_subcat_ar")
--- SWEP.SubCategory = "_Not for your eyesss"
-SWEP.Credits = { 
-    [ARC9:GetPhrase("eft_trivia_author") .. "1"] = "Darsu", 
-    [ARC9:GetPhrase("eft_trivia_assets") .. "2"] = "Battlestate Games LTD", 
-    [ARC9:GetPhrase("eft_trivia_help") .. "3"] = "Mal0", 
-    [ARC9:GetPhrase("eft_trivia_arc9") .. "4"] = "Arctic",
-}
+SWEP.Spawnable = true
+
+------------------------- |||           Trivia            ||| -------------------------
 
 SWEP.PrintName = "HK G36"
+SWEP.Description = [[G36 is a 5.56x45mm assault rifle designed in the early 1990s by German company Heckler & Koch as a replacement for the heavier 7.62x51mm G3 battle rifle. It was accepted into service with the Bundeswehr in 1997, replacing the G3. Since then, it has also been a popular export, and the G36 has seen active service in military and police units in several countries, including Germany, Spain, and the United Kingdom.]]
+
 SWEP.Class = ARC9:GetPhrase("eft_class_weapon_ar")
+SWEP.SubCategory = ARC9:GetPhrase("eft_subcat_ar")
+
 SWEP.Trivia = {
     [ARC9:GetPhrase("eft_trivia_manuf") .. "1"] = "Heckler & Koch",
     [ARC9:GetPhrase("eft_trivia_cal") .. "2"] = "5.56x45mm NATO",
@@ -21,9 +18,6 @@ SWEP.Trivia = {
     [ARC9:GetPhrase("eft_trivia_country") .. "4"] = ARC9:GetPhrase("eft_trivia_country_germ"),
     [ARC9:GetPhrase("eft_trivia_year") .. "5"] = "1995"
 }
-
-SWEP.Description = [[G36 is a 5.56x45mm assault rifle designed in the early 1990s by German company Heckler & Koch as a replacement for the heavier 7.62x51mm G3 battle rifle. It was accepted into service with the Bundeswehr in 1997, replacing the G3. Since then, it has also been a popular export, and the G36 has seen active service in military and police units in several countries, including Germany, Spain, and the United Kingdom.]]
-
 
 SWEP.StandardPresets = {
     "[C]XQAAAQAWAgAAAAAAAAA9iIIiM7tuo1AtT00OeFDxtrJqH4FQPYEt4uX9zMAZm2F7rH9RYMtVD7GOMi8yH7kIcYVLB/OZyqC8Fpvs/5C6cKGC3tYSK4BfP0FBK3HgFq70MtWDm8/jJzk/TXGgUGr/R04sVvRRdpRn0VukARGjNvM9pWHjJgyoCmgNPxEvUVxLRfiauG+ZEkUeogxR5yJIIIQK0IEPKyK3V/PgzKTXgW7A8Xb78JsAj9YEFaW5P2WTxzmro/JHr2MkRg==",
@@ -34,18 +28,104 @@ SWEP.StandardPresets = {
     "[KV2]XQAAAQDiAQAAAAAAAAA9iIIiM7tuo1AtT00OeFDxtrJqH4FQPYDkoyNYmNyx6kpIXrq2qWJjkl9up46h9Z0zG3VJ12UUekmYedDeEs1Zr/hcs+bLJSoIteJE1pAkMKJ2TCPhLovq851WLn6bG0V8DhYWkb0Yu9VXVM2nfeDp3fRxRtpUkko95iy67gYYs1DkIhZtzp4dO0tC2IbT2dzLzNNOpS4JnzpO+HGamoRlwl7nRFoS+VCmVtmoDsoS1Ysq4EJ3gGBFy7o=",
 }
 
-SWEP.BarrelLength = 38
-SWEP.Slot = 2
 SWEP.WorldModel = "models/weapons/w_rif_m4a1.mdl"
 SWEP.ViewModel = "models/weapons/arc9/darsu_eft/c_g36.mdl"
-SWEP.ViewModelFOVBase = 65
-SWEP.MirrorVMWM = true
 SWEP.DefaultBodygroups = "00000000000000"
 
+------------------------- |||           Offsets            ||| -------------------------
 
-------------------------- [[[           STATS            ]]] -------------------------
+SWEP.WorldModelOffset = {
+    Pos = Vector(-8.3, 5.5, -6),
+    Ang = Angle(-7, 0, 180),
+    TPIKPos = Vector(-5, 5, -4), -- rpg
+    TPIKAng = Angle(-11.5, 0, 180),
+    Scale = 1
+}
 
---          Damage
+SWEP.IronSights = {
+    Pos = Vector(-4.272, -8.2, 0.9),
+    Ang = Angle(0, 0.15, 0),
+    Midpoint = { Pos = Vector(-1, 0, 8), Ang = Angle(0, 0, -145) },
+    Magnification = 1.1,
+    ViewModelFOV = 54
+}
+
+local IronSights2 = {
+    Pos = Vector(-4.272, -8.2, 0.9),
+    Ang = Angle(0, 0.0, 0),
+    Midpoint = { Pos = Vector(-1, 0, 8), Ang = Angle(0, 0, -145) },
+    Magnification = 1.1,
+    ViewModelFOV = 54
+}
+
+SWEP.IronSightsHook = function(self) -- If any attachments equipped should alter Irons
+    if self:GetElements()["eft_g36_top_flip"] then
+        return IronSights2
+    end
+end
+
+SWEP.ActivePos = Vector(-0.7, -4.5, 0)
+SWEP.CustomizePos = Vector(22, 26, 4)
+SWEP.CustomizeSnapshotFOV = 95
+SWEP.CustomizeRotateAnchor = Vector(19, -4.28, -5.23)
+
+------------------------- |||           Stats            ||| -------------------------
+
+SWEP.Spread = 2.06 * ARC9.MOAToAcc
+SWEP.RPM = 750
+SWEP.EFTErgo = 60
+SWEP.BarrelLength = 40
+SWEP.Ammo = "smg1"
+SWEP.Firemodes = {
+    { Mode = -1, PoseParam = 3},
+    { Mode = 1, PoseParam = 1, RPM = 450 },
+    { Mode = 2, PoseParam = 2},
+}
+
+SWEP.Slot = 2
+
+------------------------- |||           Recoil            ||| -------------------------
+
+SWEP.Recoil = 1 -- general multiplier of main recoil
+
+SWEP.RecoilUp   = 3.0  -- up recoil
+SWEP.RecoilSide = 0.5 -- sideways recoil
+SWEP.RecoilRandomUp   = 0.55 -- random up/down
+SWEP.RecoilRandomSide = 0.4   -- random left/right
+
+SWEP.RecoilAutoControl = 4 -- autocompenstaion, could be cool if set to high but it also affects main recoil
+
+-- visual recoil   aka visrec
+SWEP.VisualRecoil = 1 -- general multiplier for it
+
+SWEP.EFT_VisualRecoilUp_BURST_SEMI   = 0.1   -- up/down tilt when semi/bursts
+SWEP.VisualRecoilUp                   = 0.5   --   when fullautoing
+SWEP.EFT_VisualRecoilSide_BURST_SEMI = 0.001 -- left/right tilt when semi/burst
+SWEP.VisualRecoilSide                 = 0.08   --   when fullautoing
+SWEP.VisualRecoilRoll = 4 -- roll tilt, a visual thing
+
+SWEP.VisualRecoilPunch = 2 -- How far back visrec moves the gun
+SWEP.VisualRecoilPunchSights = 10 -- same but in sights only
+
+SWEP.VisualRecoilDampingConst = 100  -- spring settings, this is speed of visrec
+SWEP.VisualRecoilSpringPunchDamping = 5 -- the less this is the more wobbly gun moves
+SWEP.VisualRecoilSpringMagnitude = 0.5 -- some third element of spring, high values make gun shake asf on low fps
+
+SWEP.VisualRecoilPositionBumpUpHipFire = 0.1 -- gun will go down each shot by this value
+SWEP.VisualRecoilPositionBumpUp = -0.15 -- same but in sights
+SWEP.VisualRecoilPositionBumpUpRTScope = 0.05 -- same but in rt scopes, you probably should keep it same as sight value, i guess it doesn't matter anymore after recoil update
+
+-- SWEP.VisualRecoilCenter = Vector(2, 14, 0) -- ugh, i dont now what to set it too, but probably it should be diffferent on each gun
+SWEP.EFT_ShotsToSwitchToFullAutoBehaviur = 3 -- how many shots for switch to fullauto stats from semi/burst, + 2 shots afterwards are lerping. you probably should not touch this but ok
+
+SWEP.RecoilKick = 0.3 -- camera roll each shot + makes camera go more up when fullautoing
+
+SWEP.VisualRecoilCenter = Vector(4.28, 19, -2)
+SWEP.SubtleVisualRecoil = 0.75
+SWEP.SubtleVisualRecoilDirection = 3
+SWEP.SubtleVisualRecoilSpeed = 1.25
+
+------------------------- |||           Damage            ||| -------------------------
 
 SWEP.DamageMax = 54/2
 SWEP.DamageMin = 34.1/2
@@ -94,269 +174,38 @@ SWEP.DamageLookupTable = {
 }
 
 
---          Spread
-SWEP.Spread = 2.06 * ARC9.MOAToAcc
-SWEP.SpreadAddHipFire = 0.02
-SWEP.SpreadMultMove = 1.5
-SWEP.SpreadAddMove = 0.015
+------------------------- |||           Malfunctions            ||| -------------------------
 
-
---          Recoil
--- touch these
-
-SWEP.Recoil = 1 -- general multiplier of main recoil
-
-SWEP.RecoilUp   = 3.0  -- up recoil
-SWEP.RecoilSide = 0.5 -- sideways recoil
-SWEP.RecoilRandomUp   = 0.55 -- random up/down
-SWEP.RecoilRandomSide = 0.4   -- random left/right
-
-SWEP.RecoilAutoControl = 4 -- autocompenstaion, could be cool if set to high but it also affects main recoil
-
--- visual recoil   aka visrec
-SWEP.VisualRecoil = 1 -- general multiplier for it
-
-local EFT_VisualRecoilUp_BURST_SEMI   = 0.1   -- up/down tilt when semi/bursts
-SWEP.VisualRecoilUp                   = 0.5   --   when fullautoing
-local EFT_VisualRecoilSide_BURST_SEMI = 0.001 -- left/right tilt when semi/burst
-SWEP.VisualRecoilSide                 = 0.08   --   when fullautoing
-SWEP.VisualRecoilRoll = 4 -- roll tilt, a visual thing
-
-SWEP.VisualRecoilPunch = 2 -- How far back visrec moves the gun
-SWEP.VisualRecoilPunchSights = 10 -- same but in sights only
-
-SWEP.VisualRecoilDampingConst = 100  -- spring settings, this is speed of visrec
-SWEP.VisualRecoilSpringPunchDamping = 5 -- the less this is the more wobbly gun moves
-SWEP.VisualRecoilSpringMagnitude = 0.5 -- some third element of spring, high values make gun shake asf on low fps
-
-SWEP.VisualRecoilPositionBumpUpHipFire = 0.1 -- gun will go down each shot by this value
-SWEP.VisualRecoilPositionBumpUp = -0.15 -- same but in sights
-SWEP.VisualRecoilPositionBumpUpRTScope = 0.05 -- same but in rt scopes, you probably should keep it same as sight value, i guess it doesn't matter anymore after recoil update
-
-SWEP.VisualRecoilCenter = Vector(2, 14, 0) -- ugh, i dont now what to set it too, but probably it should be diffferent on each gun
-local EFT_ShotsToSwitchToFullAutoBehaviur = 3 -- how many shots for switch to fullauto stats from semi/burst, + 2 shots afterwards are lerping. you probably should not touch this but ok
-
-SWEP.RecoilKick = 0.3 -- camera roll each shot + makes camera go more up when fullautoing
-
--- dont touch this i guess
-
-SWEP.RecoilMultHipFire = 1
-SWEP.RecoilMultCrouch = 0.75
-SWEP.RecoilUpMultFirstShot = 0.85
-SWEP.RecoilUpMultRecoil = 1.2
-
-SWEP.RecoilDissipationRate = 5
-SWEP.RecoilAutoControlMultHipFire = 0.75
-SWEP.RecoilAutoControl_DontTryToReturnBack = true
-SWEP.RecoilResetTime = 0.03
-SWEP.RecoilFullResetTime = 0.2
-
-SWEP.UseVisualRecoil = true 
-SWEP.VisualRecoilMultHipFire = 1
-SWEP.VisualRecoilMultSights = 1
-SWEP.VisualRecoilMultCrouch = 0.75
-
-SWEP.VisualRecoilDampingConstMultFirstShot = 3
-
--- SWEP.VisualRecoilThinkFunc = function(springconstant, VisualRecoilSpringMagnitude, PUNCH_DAMPING, recamount)
---     return springconstant, VisualRecoilSpringMagnitude, PUNCH_DAMPING
--- end
-
-SWEP.VisualRecoilDoingFunc = function(up, side, roll, punch, recamount, self)
-    local fullauto = math.Clamp(recamount - EFT_ShotsToSwitchToFullAutoBehaviur, 0, 3) * 0.33333333
-    up = Lerp(fullauto, EFT_VisualRecoilUp_BURST_SEMI, up)
-    side = Lerp(fullauto, EFT_VisualRecoilSide_BURST_SEMI, side)
-
-    if recamount < 2 then
-        if self:GetSightAmount() < 0.2 then up = 1 end -- only for visual when hipfiring
-    end
-    
-    if self:GetUBGL() then up = 4 end -- ubgl!
-
-    return up, side, roll, punch
-end
-
-SWEP.RecoilKickAffectPitch = true
-SWEP.RecoilKickDamping = 10
-
-
-
---          Heating
-
-SWEP.Malfunction = true 
 SWEP.MalfunctionNeverLastShoot = false 
-SWEP.MalfunctionMeanShotsToFail = 1.5 * 450
+SWEP.MalfunctionMeanShotsToFail = 675
 SWEP.MalfunctionMeanShotsToFailMultHot = -0.2
-SWEP.Overheat = true
 SWEP.HeatCapacity = 240
 SWEP.HeatDissipation = 2.5
-SWEP.HeatPerShot = 1
-SWEP.HeatLockout = false
 
+------------------------- |||           Minor stuff            ||| -------------------------
 
---          Firemodes
+SWEP.CamQCA_Mult = 0.8
+SWEP.MuzzleParticle = "muzzleflash_4"
+SWEP.ShellModel = "models/weapons/arc9_eft_shared/shells/eft_shell_556_m855.mdl"
+SWEP.ShellSounds = ARC9EFT.Shells556
 
-SWEP.RPM = 750
--- SWEP.Firemodes = { { Mode = -1 }, { Mode = 1 } } -- auto, semi
+SWEP.CustomPoseParamsHandler = function(swep, ent, iswm)
+    local loadedronds = swep:GetLoadedRounds() - 1
+    -- if loadedronds <= 10 then loadedronds = loadedronds * 0.8 end
+    -- if loadedronds <= 4 then loadedronds = loadedronds -2 end
+    ent:SetPoseParameter("magspring", 1-math.Clamp(loadedronds/swep:GetMaxClip1(), 0, 1))
+end
 
-SWEP.Firemodes = {
-    { Mode = -1, PoseParam = 3},
-    { Mode = 1, PoseParam = 1, RPM = 450 },
-    { Mode = 2, PoseParam = 2},
-}
---          Speed
-
-SWEP.AimDownSightsTime = 0.33
-SWEP.SprintToFireTime = 0.35
-
-SWEP.SpeedMult = 0.95
-SWEP.SpeedMultSights = 0.5
-SWEP.SpeedMultShooting = 0.7
-SWEP.SpeedMultMelee = 0.75
-SWEP.SpeedMultCrouch = 1
-SWEP.SpeedMultBlindFire = 1
-
-
---          Other
-
-SWEP.FreeAimRadius = 2
-SWEP.FreeAimRadiusSights = 0
-
-SWEP.Sway = 1
-SWEP.SwayMove = 0.5
-SWEP.SwayMidAir = 10
-SWEP.SwayMultCrouch = 0.75
-SWEP.SwayMultHipFire = 0.2
-SWEP.SwayMultSights = 0.25
-SWEP.HoldBreathTime = 40
-SWEP.RestoreBreathTime = 30
-SWEP.BreathInSound = false 
-SWEP.BreathOutSound = false
-SWEP.BreathRunOutSound = "arc9_eft_shared/bear3_breath_sprint.ogg"
-
---          Generic stats
-
-SWEP.Ammo = "smg1"
-SWEP.ChamberSize = 0 -- no mag
-SWEP.ClipSize = 1 -- actual chamber (no mag)
-SWEP.SupplyLimit = 4
-SWEP.SecondarySupplyLimit = 4
-SWEP.ReloadInSights = true
-SWEP.DropMagazineSounds = {}
-SWEP.DropMagazineAmount = 1
-SWEP.DropMagazineTime = 0.5
-SWEP.DropMagazineQCA = 4
-SWEP.DropMagazinePos = Vector(0, 0, 0)
-SWEP.DropMagazineAng = Angle(-180, 180, 0)
--- SWEP.DropMagazineVelocity = Vector(30, 50, -30)
--- SWEP.DropMagazineVelocity = Vector(100, -20, 0)
-SWEP.DropMagazineVelocity = Vector(0, -10, 0)
-SWEP.Bash = false
-SWEP.PrimaryBash = false
-SWEP.TracerNum = 0
-SWEP.TracerColor = Color(255, 225, 200)
-
-
-
-------------------------- [[[           Other            ]]] -------------------------
-
---          Positions and offsets
-
-SWEP.IronSights = {
-    Pos = Vector(-4.272, -8.2, 0.9),
-    Ang = Angle(0, 0.15, 0),
-    Midpoint = { Pos = Vector(-1, 0, 8), Ang = Angle(0, 0, -145) },
-    Magnification = 1.1,
-    ViewModelFOV = 54
-}
-
-local IronSights2 = {
-    Pos = Vector(-4.272, -8.2, 0.9),
-    Ang = Angle(0, 0.0, 0),
-    Midpoint = { Pos = Vector(-1, 0, 8), Ang = Angle(0, 0, -145) },
-    Magnification = 1.1,
-    ViewModelFOV = 54
-}
-
-SWEP.IronSightsHook = function(self) -- If any attachments equipped should alter Irons
-    if self:GetElements()["eft_g36_top_flip"] then
-        return IronSights2
+local vectar = Vector(30, 50, -30) -- fack youuuuuuuu
+SWEP.DropMagazineVelocityHook = function(swep, stat)
+    if swep:GetIKAnimation() == "1_reload_empty_0" then
+        return vectar
     end
 end
 
-SWEP.ActivePos = Vector(-0.7, -4.5, 0)
-SWEP.ActiveAng = Angle(0, 0, 0)
-
-SWEP.SprintAng = Angle(50, 10, -45)
-SWEP.SprintPos = Vector(4, -5, 0)
-
-SWEP.NearWallAng = Angle(0, 55, 0)
-SWEP.NearWallPos = Vector(0, 0, -15)
-
-SWEP.CrouchPos = Vector(-0.7, -3.8, .35)
-SWEP.CrouchAng = Angle(0, 0, -1)
-
-SWEP.CustomizeAng = Angle(90, 0, 0)
-SWEP.CustomizePos = Vector(22, 26, 4)
-SWEP.CustomizeSnapshotFOV = 95
-SWEP.CustomizeRotateAnchor = Vector(19, -4.28, -5.23)
-
-SWEP.EnterBipodSound = false 
-SWEP.ExitBipodSound = false
-SWEP.BipodPos = Vector(-1.7, -3.5, 1)
-SWEP.BipodAng = Angle(0, 0, 0)
-
---          Third person stuff
-
-SWEP.HoldType = "rpg"
-SWEP.HoldTypeSprint = "rpg"
-SWEP.HoldTypeHolstered = "rpg"
-SWEP.HoldTypeSights = "rpg"
-SWEP.HoldTypeCustomize = "physgun"
-
-SWEP.WorldModelOffset = {
-    Pos = Vector(-8.3, 5.5, -6),
-    Ang = Angle(-7, 0, 180),
-    TPIKPos = Vector(-5, 5, -4), -- rpg
-    TPIKAng = Angle(-11.5, 0, 180),
-    Scale = 1
-}
-
-SWEP.AnimShoot = ACT_HL2MP_GESTURE_RANGE_ATTACK_SMG1
-SWEP.AnimReload = ACT_HL2MP_GESTURE_RELOAD_MAGIC
-SWEP.AnimDraw = ACT_HL2MP_GESTURE_RANGE_ATTACK_SHOTGUN
-
-
---          Effects
-
-SWEP.CamQCA = 3
-SWEP.CamOffsetAng = Angle(0, 0, 90)
-SWEP.CamQCA_Mult = 0.3
-SWEP.CamQCA_Mult_ADS = 0.05
-
-SWEP.MuzzleParticle = "muzzleflash_4"
-
-SWEP.CaseEffectQCA = 2
-SWEP.ShellModel = "models/weapons/arc9_eft_shared/shells/eft_shell_556_m855.mdl"
-SWEP.ShellScale = 1
-SWEP.ShellCorrectAng = Angle(0, 180, 180)
-SWEP.ShellPhysBox = Vector(0.5, 0.5, 2)
-
-SWEP.BulletBones = {
-    [1] = "patron_in_weapon",
-    [2] = "patron_in_mag0",
-    [3] = "patron_in_mag1",
-    [4] = "patron_in_mag2",
-    [5] = "patron_in_mag3",
-}
-
-------------------------- [[[           Sounds            ]]] -------------------------
+------------------------- |||           Sounds            ||| -------------------------
 
 local path = "weapons/darsu_eft/g36/"
-
-SWEP.ShootPitchVariation = 0
-SWEP.DistantShootVolume = 0.05
-SWEP.DistantShootVolumeActual = 0.05
 
 SWEP.ShootSound = { path .. "fire_new/g36_outdoor_close1.ogg", path .. "fire_new/g36_outdoor_close2.ogg", path .. "fire_new/g36_outdoor_close3.ogg", path .. "fire_new/g36_outdoor_close4.ogg" }
 SWEP.LayerSound = path .. "fire_new/g36_outdoor_close_tail.ogg"
@@ -375,34 +224,26 @@ SWEP.DistantShootSoundSilenced = { path .. "fire_new/g36_outdoor_silenced_distan
 SWEP.DistantShootSoundIndoor = { path .. "fire_new/g36_indoor_distant1.ogg", path .. "fire_new/g36_indoor_distant2.ogg" }
 SWEP.DistantShootSoundSilencedIndoor = { path .. "fire_new/g36_indoor_silenced_distant1.ogg", path .. "fire_new/g36_indoor_silenced_distant2.ogg" }
 
+------------------------- |||           Dropped magazines            ||| -------------------------
 
-SWEP.FiremodeSound = "" -- we will have own in sound tables
-SWEP.ToggleAttSound = "" -- we will have own in sound tables
-SWEP.DryFireSound = "" -- we will have own in sound tables
+SWEP.DropMagazineTime = 0.5
+SWEP.DropMagazineQCA = 4
+SWEP.DropMagazinePos = Vector(0, 0, 0)
+SWEP.DropMagazineAng = Angle(-180, 180, 0)
+SWEP.DropMagazineVelocity = Vector(0, -10, 0)
 
+------------------------- |||           Animations            ||| -------------------------
 
-SWEP.EnterSightsSound = ARC9EFT.ADSRifle
-SWEP.ExitSightsSound = ARC9EFT.ADSRifleOut
-
-
-SWEP.SuppressEmptySuffix = true 
-
-------------------------- [[[           Hooks & functions            ]]] -------------------------
-
-
-
-------------------------- [[[           Animations            ]]] -------------------------
-
-SWEP.ReloadHideBoneTables = {
-    [1] = {
-        "mod_magazine",
-        "patron_in_mag0",
-        "patron_in_mag1",
-        "patron_in_mag2",
-        "patron_in_mag3"
-    },
+SWEP.BulletBones = {
+    [1] = "patron_in_weapon",
+    [2] = "patron_in_mag0",
+    [3] = "patron_in_mag1",
+    [4] = "patron_in_mag2",
+    [5] = "patron_in_mag3",
 }
 
+
+SWEP.SuppressEmptySuffix = true
 SWEP.Hook_TranslateAnimation = function(swep, anim)
     local elements = swep:GetElements()
     if !IsFirstTimePredicted() then return end
@@ -469,6 +310,17 @@ SWEP.Hook_TranslateAnimation = function(swep, anim)
         return "jam" .. rand
     end
 end
+
+SWEP.ReloadHideBoneTables = {
+    [1] = {
+        "mod_magazine",
+        "patron_in_mag0",
+        "patron_in_mag1",
+        "patron_in_mag2",
+        "patron_in_mag3"
+    },
+}
+
 
 local randspin = {"arc9_eft_shared/weapon_generic_rifle_spin1.ogg","arc9_eft_shared/weapon_generic_rifle_spin2.ogg","arc9_eft_shared/weapon_generic_rifle_spin3.ogg","arc9_eft_shared/weapon_generic_rifle_spin4.ogg","arc9_eft_shared/weapon_generic_rifle_spin5.ogg","arc9_eft_shared/weapon_generic_rifle_spin6.ogg","arc9_eft_shared/weapon_generic_rifle_spin7.ogg","arc9_eft_shared/weapon_generic_rifle_spin8.ogg","arc9_eft_shared/weapon_generic_rifle_spin9.ogg","arc9_eft_shared/weapon_generic_rifle_spin10.ogg"}
 local pouchin = {"arc9_eft_shared/generic_mag_pouch_in1.ogg","arc9_eft_shared/generic_mag_pouch_in2.ogg","arc9_eft_shared/generic_mag_pouch_in3.ogg","arc9_eft_shared/generic_mag_pouch_in4.ogg","arc9_eft_shared/generic_mag_pouch_in5.ogg","arc9_eft_shared/generic_mag_pouch_in6.ogg","arc9_eft_shared/generic_mag_pouch_in7.ogg"}
@@ -1248,52 +1100,11 @@ SWEP.Animations = {
     },
 }
 
--- anger
--- local sposoffset, sangoffset = Vector(-0.006, 0, -0.05), Angle(0, 0.45, 0)
--- function SWEP:GetSightPositions()
---     local s = self:GetSight()
---     local e = self:GetElements()
 
---     if self:GetValue("FoldSights") then
---         return s.Pos, s.Ang
---     elseif e["barrel_20i"] then
---         return s.Pos + sposoffset, s.Ang + sangoffset
---     elseif e["barrel_165i"] or e["barrel_145i"] then
---         return s.Pos + sposoffset, s.Ang + sangoffset*1.2
---     elseif e["eft_hg_hk416_crux"] then
---         return s.Pos + sposoffset*0.8, s.Ang + sangoffset*0.6
---     end
---     return s.Pos, s.Ang
--- end
 
-------------------------- [[[           Attachments            ]]] -------------------------
+------------------------- |||           Attachments            ||| -------------------------
 
-SWEP.Hook_ModifyBodygroups = function(wep, data)
-    local eles = data.elements
-    local mdl = data.model
-    local brllong, brlmid = eles["eft_g36_barrel_480"], eles["eft_g36_barrel_318"]
-    if eles["eft_g36_top_flip"] then
-        mdl:SetBodygroup(9, wep:GetValue("FoldSights") and 4 or 3)
-    end
-
-    if eles["eft_g36_gas_std"] and (brllong or brlmid) then
-        mdl:SetBodygroup(2, brllong and 3 or 2)
-    end
-
-    if eles["eft_g36_hg_handstop"] then
-        mdl:SetBodygroup(4, brlmid and 2 or 1)
-    end
-
-    -- if wep:GetValue("EFTFoldStock") then
-    --     mdl:SetBodygroup(7, eles["eft_g36_stock_kv"] and 4 or 3)
-    -- end
-    
-    if eles["eft_g36_hg_bipod"] and wep:GetBipod() then
-        if wep:GetEnterBipodTime() + 0.1 < CurTime() then
-            mdl:SetBodygroup(5, 2)
-        end
-    end
-end
+SWEP.EFTRequiredAtts = { "HasBarrel", "HasHG", "HasGas", "HasChassis", "HasAmmoooooooo" }
 
 SWEP.AttachmentElements = {
     ["eft_g36_barrel_228"] = { Bodygroups = { {1, 1} } },
@@ -1336,34 +1147,32 @@ SWEP.AttachmentElements = {
     ["eft_g36_hg_slim"] = { Bodygroups = { {3, 4} } },
 }
 
-SWEP.missingpartsnotifsent = 0
+SWEP.Hook_ModifyBodygroups = function(wep, data)
+    local eles = data.elements
+    local mdl = data.model
+    local brllong, brlmid = eles["eft_g36_barrel_480"], eles["eft_g36_barrel_318"]
+    if eles["eft_g36_top_flip"] then
+        mdl:SetBodygroup(9, wep:GetValue("FoldSights") and 4 or 3)
+    end
 
-function SWEP:HookP_BlockFire()
-    if  !self:GetValue("HasBarrel") or 
-        !self:GetValue("HasHG") or
-        !self:GetValue("HasGas") or
-        !self:GetValue("HasChassis") or
-        !self:GetValue("HasAmmoooooooo") then
-            
-            if SERVER and self.missingpartsnotifsent < CurTime() then
-                self.missingpartsnotifsent = CurTime() + 3
-                net.Start("arc9eftmissingparts")
-                net.Send(self:GetOwner())
-            end
-            return true 
+    if eles["eft_g36_gas_std"] and (brllong or brlmid) then
+        mdl:SetBodygroup(2, brllong and 3 or 2)
+    end
+
+    if eles["eft_g36_hg_handstop"] then
+        mdl:SetBodygroup(4, brlmid and 2 or 1)
+    end
+
+    -- if wep:GetValue("EFTFoldStock") then
+    --     mdl:SetBodygroup(7, eles["eft_g36_stock_kv"] and 4 or 3)
+    -- end
+    
+    if eles["eft_g36_hg_bipod"] and wep:GetBipod() then
+        if wep:GetEnterBipodTime() + 0.1 < CurTime() then
+            mdl:SetBodygroup(5, 2)
+        end
     end
 end
-
-function SWEP:Hook_RedPrintName()
-    if  !self:GetValue("HasBarrel") or 
-        !self:GetValue("HasHG") or
-        !self:GetValue("HasGas") or
-        !self:GetValue("HasChassis") or
-        !self:GetValue("HasAmmoooooooo") then
-            return true 
-    end
-end
-
 
 SWEP.Attachments = {
 
@@ -1379,21 +1188,6 @@ SWEP.Attachments = {
             {
                 Installed = "eft_g36_hensoldt_sight"
             },
-        --     {},
-        --     {
-        --         Installed = "eft_barrel_hk416_145i",
-        --         SubAttachments = {
-        --             {
-        --                 Installed = "eft_gas_hk416_std"
-        --             },
-        --             {
-        --                 Installed = "eft_muzzle_ar15_usgia2"
-        --             }
-        --         }
-        --     },
-        --     {
-        --         Installed = "eft_hg_hk416_quad",
-        --     }
         }
     },
     {
@@ -1479,32 +1273,3 @@ SWEP.Attachments = {
         Ang = Angle(0, 0, 0),
     },
 }
-
-SWEP.EFTErgo = 60
-if ARC9EFTBASE then
-    SWEP.AimDownSightsTimeHook = ARC9EFT.ErgoHook or nil
-    SWEP.HoldBreathTimeHook = ARC9EFT.ErgoBreathHook or nil
-    -- SWEP.HookP_TranslateSound = ARC9EFT.ErgoAdsVolume or nil
-    SWEP.SpreadHook = ARC9EFT.SpreadBonus or nil
-else
-    print("Dum! install arc9 eft shared!!!!!!!!!!!!!!")
-end
-SWEP.AimDownSightsTimeMultShooting = 4
-
-SWEP.RicochetSounds = ARC9EFT.RicochetSounds
-SWEP.ShellSounds = ARC9EFT.Shells556
-
-
-SWEP.CustomPoseParamsHandler = function(swep, ent, iswm)
-    local loadedronds = swep:GetLoadedRounds() - 1
-    -- if loadedronds <= 10 then loadedronds = loadedronds * 0.8 end
-    -- if loadedronds <= 4 then loadedronds = loadedronds -2 end
-    ent:SetPoseParameter("magspring", 1-math.Clamp(loadedronds/swep:GetMaxClip1(), 0, 1))
-end
-
-local vectar = Vector(30, 50, -30) -- fack youuuuuuuu
-SWEP.DropMagazineVelocityHook = function(swep, stat)
-    if swep:GetIKAnimation() == "1_reload_empty_0" then
-        return vectar
-    end
-end
