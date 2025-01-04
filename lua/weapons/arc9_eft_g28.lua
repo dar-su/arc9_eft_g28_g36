@@ -799,27 +799,12 @@ SWEP.AttachmentElements = {
 SWEP.Hook_ModifyBodygroups = function(wep, data)
     local eles = data.elements
     local mdl = data.model
-    local brllong, brlmid = eles["eft_g36_barrel_480"], eles["eft_g36_barrel_318"]
-    if eles["eft_g36_top_flip"] then
-        mdl:SetBodygroup(9, wep:GetValue("FoldSights") and 4 or 3)
-    end
-
-    if eles["eft_g36_gas_std"] and (brllong or brlmid) then
-        mdl:SetBodygroup(2, brllong and 3 or 2)
-    end
-
-    if eles["eft_g36_hg_handstop"] then
-        mdl:SetBodygroup(4, brlmid and 2 or 1)
-    end
-
-    -- if wep:GetValue("EFTFoldStock") then
-    --     mdl:SetBodygroup(7, eles["eft_g36_stock_kv"] and 4 or 3)
-    -- end
-    
-    if eles["eft_g36_hg_bipod"] and wep:GetBipod() then
-        if wep:GetEnterBipodTime() + 0.1 < CurTime() then
-            mdl:SetBodygroup(5, 2)
-        end
+    if eles["eft_g28_hg_std"] then
+        mdl:SetBodygroup(7, wep:GetValue("FoldSights") and 2 or 1)
+    elseif eles["eft_g28_hg_ext"] then
+        mdl:SetBodygroup(7, wep:GetValue("FoldSights") and 4 or 3)
+    else
+        mdl:SetBodygroup(7, 0)
     end
 end
 
