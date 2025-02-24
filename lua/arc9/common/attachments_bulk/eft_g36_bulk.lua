@@ -854,9 +854,10 @@ ATT.Sights = {
 
 ATT.Model = "models/weapons/arc9/darsu_eft/mods/scope_base_hensoldt_hkv.mdl"
 ATT.HoloSight = true
-ATT.HoloSightReticle = Material("vgui/arc9_eft_shared/reticles/scope_base_aimpoint_micro_h2_mark.png", "mips smooth")
-ATT.HoloSightReticle:SetInt("$additive", 1)
-ATT.HoloSightSize = 500
+ATT.HoloSightReticle = Material("vgui/arc9_eft_shared/reticles/new/scope_base_aimpoint_micro_h2_mark.png", "mips smooth")
+ATT.HoloSightReticle:SetInt("$flags", bit.bor(ATT.HoloSightReticle:GetInt("$flags"), 128)) -- additive
+ATT.HoloSightReticle:SetVector("$color2", Vector(4.25, 2, 2) * 0.3) -- bright color
+ATT.HoloSightSize = 450
 ATT.HoloSightColorable = false
 
 ATT.Category = {"eft_g36_hensoldt_mount"}
