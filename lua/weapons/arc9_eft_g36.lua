@@ -204,6 +204,11 @@ SWEP.DropMagazineVelocityHook = function(swep, stat)
     end
 end
 
+SWEP.DynamicConditions = {
+    ["Recoil"] = true,
+    ["DropMagazineVelocity"] = true,
+}
+
 ------------------------- |||           Sounds            ||| -------------------------
 
 local path = "weapons/darsu_eft/g36/"
