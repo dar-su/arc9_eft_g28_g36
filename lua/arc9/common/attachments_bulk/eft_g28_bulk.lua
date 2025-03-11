@@ -126,7 +126,8 @@ ATT.ChamberSize = 1
 ATT.SuppressEmptySuffix = false 
 ATT.DropMagazineAmount = 1
 ATT.DropMagazineModel = "models/weapons/arc9/darsu_eft/mods/mag_hk_417_10.mdl"
--- ATT.Model = "models/weapons/arc9/darsu_eft/mods/mag_hk_417_10.mdl"
+ATT.Model = "models/weapons/arc9/darsu_eft/mods/mag_hk_417_10_tr.mdl"
+ATT.TranslucentPass = true
 
 ATT.DrawFunc = function(swep, model) model:SetSkin(swep:GetElements()["eft_g28_blk"] and 1 or 0) end
 
@@ -222,7 +223,8 @@ ATT.ChamberSize = 1
 ATT.SuppressEmptySuffix = false 
 ATT.DropMagazineAmount = 1
 ATT.DropMagazineModel = "models/weapons/arc9/darsu_eft/mods/mag_hk_417_20.mdl"
--- ATT.Model = "models/weapons/arc9/darsu_eft/mods/mag_hk_417_20.mdl"
+ATT.Model = "models/weapons/arc9/darsu_eft/mods/mag_hk_417_20_tr.mdl"
+ATT.TranslucentPass = true
 
 ATT.DrawFunc = function(swep, model) model:SetSkin(swep:GetElements()["eft_g28_blk"] and 1 or 0) end
 

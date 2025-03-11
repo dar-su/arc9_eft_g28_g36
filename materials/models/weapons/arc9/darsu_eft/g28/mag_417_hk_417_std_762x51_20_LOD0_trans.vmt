@@ -3,7 +3,7 @@
 
 "VertexLitGeneric"
 {
-	"$basetexture" "models/weapons/arc9/darsu_eft/g28/mag_417_hk_417_std_762x51_20_LOD0_diff2"
+	"$basetexture" "models/weapons/arc9/darsu_eft/g28/mag_417_hk_417_std_762x51_20_LOD0_diff_blk"
 	"$bumpmap" "models/weapons/arc9/darsu_eft/g28/mag_417_hk_417_std_762x51_20_LOD0_nrm"
 	"$phongexponenttexture" "models/weapons/arc9/darsu_eft/g28/mag_417_hk_417_std_762x51_20_LOD0_gloss"
 	"$translucent" "1"
@@ -20,7 +20,6 @@
 	"$rimlight" "1"
 	"$rimlightexponent" "4"
 	"$rimmask" "1"
-	// "$vertexalpha" "1"
 	
 	"$envmap" "env_cubemap"
 	"$envmapfresnel" "0.1"

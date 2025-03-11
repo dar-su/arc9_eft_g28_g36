@@ -894,7 +894,8 @@ ATT.DropMagazineAmount = 1
 ATT.ShouldDropMag = false
 ATT.ShouldDropMagEmpty = false
 ATT.DropMagazineModel = "models/weapons/arc9/darsu_eft/mods/mag_g36_30.mdl"
--- ATT.Model = "models/weapons/arc9/darsu_eft/mods/mag_g36_30.mdl"
+ATT.Model = "models/weapons/arc9/darsu_eft/mods/mag_g36_30_tr.mdl"
+ATT.TranslucentPass = true
 
 ATT.BulletBones = {
     [1] = "patron_in_weapon",

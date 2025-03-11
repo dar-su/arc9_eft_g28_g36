@@ -3,7 +3,7 @@
 
 "VertexLitGeneric"
 {
-	"$basetexture" "models/weapons/arc9/darsu_eft/g36/mag_g36_hk_std_556x45_30_LOD0_diff2"
+	"$basetexture" "models/weapons/arc9/darsu_eft/g36/mag_g36_hk_std_556x45_30_LOD0_diff"
 	"$bumpmap" "models/weapons/arc9/darsu_eft/g36/mag_g36_hk_std_556x45_30_LOD0_nrm"
 	"$phongexponenttexture" "models/weapons/arc9/darsu_eft/g36/mag_g36_hk_std_556x45_30_LOD0_gloss"
 	"$translucent" "1"
@@ -11,7 +11,7 @@
 	"$normalmapalphaenvmapmask" "0"
 	"$basemapalphaenvmapmask" "1"
 
-	// "$nocull" "1"
+	"$nocull" "1"
 	"$phong" "1"
 	"$phongboost" "5"
 	"$phongalbedotint" "1"
