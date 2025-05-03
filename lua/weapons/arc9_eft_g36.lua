@@ -5,18 +5,18 @@ SWEP.Spawnable = true
 
 ------------------------- |||           Trivia            ||| -------------------------
 
-SWEP.PrintName = "HK G36"
-SWEP.Description = [[G36 is a 5.56x45mm assault rifle designed in the early 1990s by German company Heckler & Koch as a replacement for the heavier 7.62x51mm G3 battle rifle. It was accepted into service with the Bundeswehr in 1997, replacing the G3. Since then, it has also been a popular export, and the G36 has seen active service in military and police units in several countries, including Germany, Spain, and the United Kingdom.]]
+SWEP.PrintName = ARC9:GetPhrase("eft_weapon_g36")
+SWEP.Description = "eft_weapon_g36_desc"
 
-SWEP.Class = ARC9:GetPhrase("eft_class_weapon_ar")
+SWEP.Class = "eft_class_weapon_ar"
 SWEP.SubCategory = ARC9:GetPhrase("eft_subcat_ar")
 
 SWEP.Trivia = {
-    [ARC9:GetPhrase("eft_trivia_manuf") .. "1"] = "Heckler & Koch",
-    [ARC9:GetPhrase("eft_trivia_cal") .. "2"] = "5.56x45mm NATO",
-    [ARC9:GetPhrase("eft_trivia_act") .. "3"]= ARC9:GetPhrase("eft_trivia_act_blow"),
-    [ARC9:GetPhrase("eft_trivia_country") .. "4"] = ARC9:GetPhrase("eft_trivia_country_germ"),
-    [ARC9:GetPhrase("eft_trivia_year") .. "5"] = "1995"
+    ["eft_trivia_manuf1"] = "eft_trivia_manuf_hk",
+    ["eft_trivia_cal2"] = "eft_trivia_calibr_556x45",
+    ["eft_trivia_act3"]= "eft_trivia_act_blow",
+    ["eft_trivia_country4"] = "eft_trivia_country_germ",
+    ["eft_trivia_year5"] = "1995"
 }
 
 SWEP.StandardPresets = {
